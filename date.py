@@ -20,3 +20,7 @@ print(budgetInput)
 
 #print(seafoodMenu.Menu["AppMenu"]["Name"][0][2])
 #[print(f"{key}: {value}") for key, value in seafoodMenu.Menu.items("AppMenu")]
+for key in seafoodMenu.Menu["AppMenu"]:
+    print (key)
+    for value in seafoodMenu.Menu["AppMenu"][key]:
+        print (value)
