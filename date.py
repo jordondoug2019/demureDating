@@ -18,9 +18,23 @@ print(userInput)
 budgetInput= float(input(f"{userInput} is really lucky! What is the budget?"))
 print(budgetInput)
 
-#print(seafoodMenu.Menu["AppMenu"]["Name"][0][2])
-#[print(f"{key}: {value}") for key, value in seafoodMenu.Menu.items("AppMenu")]
+#prints restuarant menu using a nested for loop. The loop goes through each key in the dictionary, 
+# and for each key, it iterates over the corresponding values.
+# I also added the title of each section of the menu and line breaks to make for a better user experience. 
+print(f"Appetizers \n")
 for key in seafoodMenu.Menu["AppMenu"]:
-    print (key)
+    print (key + "\n")
     for value in seafoodMenu.Menu["AppMenu"][key]:
-        print (value)
+        print (value + "\n") 
+
+print(f"Entrees \n")
+for key in seafoodMenu.Menu["Entree"]:
+    print (key + "\n")
+    for value in seafoodMenu.Menu["Entree"][key]:
+        print (value + "\n")
+
+print(f"Dessert \n")
+for key in seafoodMenu.Menu["Dessert"]:
+    print (key + "\n")
+    for value in seafoodMenu.Menu["Dessert"][key]:
+        print (value + "\n")
