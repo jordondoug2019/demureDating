@@ -27,5 +27,3 @@ Menu={
         
         } 
 }
-
-print(sum(Menu["AppMenu"].values))
