@@ -53,41 +53,45 @@ for key in seafoodMenu.Menu["Dessert"]:
 #Budget - (userChoice + UserDateChoice)
 #need conditonals?
 
-#Created a function that takes the input of the user and their date. 
-#I used a while loop to continue accepting answers until a valid choice matched the Seafood Menu
-#The for loop was used to iterate over the seafood menu and find the menu item that corresponded with the user Input
-#Returns the menu choice
-def get_choice(choice_prompt):
-    while True:
-        choice = input(choice_prompt)
-        for category, items in seafoodMenu.Menu.items():
-            if choice in items:
-                return choice, items[choice][0]  # Returning the item name and its price
-        print("Invalid choice, please select a valid menu item.")
 
 
-#Assigned Function to get USer Choice
-userChoice,userPrice= get_choice("What will you be having for dinner? ")
-userDateChoice, userDatePrice=get_choice(f"What will {userInput} be having for dinner? ")
-#Assigned function to userPrice and userDatePrice variable. The function took the parameters: The dictionary and user Input choice
+userChoice = input("What will you be having for dinner? ")
+userDateChoice=input(f"What will {userInput} have for dinner? ")
+#created a for loop that iterates over the seafood Menu items. 
+#The key variable= key of Menu dictionary(AppMenu, Entree, and Dessert)
+#The value variable= Keys of the AppMenu, Entree, and Dessert
+#the userChoice and UserDateChoice= the input from user
+#If the input is within the Keys of one of the menus(AppMenu, Entree, Dessert,)
+# it will 
+for key, value in seafoodMenu.Menu.items():
+    if userChoice in value:
+        print(key)
+        print(value)
+        userPrice=value[userChoice][0]
+        print(userPrice)
+    if userDateChoice in value:
+        print(value)
+        userDatePrice=value[userDateChoice][0]
+        print(userDatePrice)
+        totalBill= userPrice + userDatePrice
+print(totalBill)
+remainingBudget= budgetInput - totalBill
+print(remainingBudget)
+    #make totalbill function def totalbill (userprice, userdateprice 
+#Script tells the user how much money they have left after each order.
+#totalBill= userPrice + userDatePrice
+#print(totalBill)
+#At the end of the date user must agree to pay the bill and then their final budget is shown to them.
 
 
-# Get choices and prices for both user and their date
-#The function get_choice is assigned to both Choices and Prices. 
-#In one line of code, it will retrieve the users choice from the menu and its price
-#userChoice, userPrice = get_choice("What will you be having for dinner? ")
-#userDateChoice, userDatePrice = get_choice(f"What will {userInput} be having for dinner? ")
+
+
+
+
 
 # Calculate total bill
-total_bill = userPrice + userDatePrice
-remaining_budget = budgetInput - total_bill
+#total_bill = userPrice + userDatePrice
+#remaining_budget = budgetInput - total_bill
 
 # Display the choices, the bill, and the remaining budget
-print(f"\nYou ordered: {userChoice} - ${userPrice:.2f}")
-print(f"{userInput} ordered: {userDateChoice} - ${userDatePrice:.2f}")
-print(f"Your total bill is: ${total_bill:.2f}")
-billAgreement=input(f"Do you agree to pay the bill? y/n?")
-if billAgreement=="y":
-    print(f"Remaining budget: ${remaining_budget:.2f}\n")
-elif billAgreement== "n":
-    print(f"It's Time to wash the dishes")
+
