@@ -55,28 +55,46 @@ for key in seafoodMenu.Menu["Dessert"]:
 
 
 
-userChoice = input("What will you be having for dinner? ")
-userDateChoice=input(f"What will {userInput} have for dinner? ")
+#userChoice = input("What will you be having for dinner? ")
+#userDateChoice=input(f"What will {userInput} have for dinner? ")
 #created a for loop that iterates over the seafood Menu items. 
 #The key variable= key of Menu dictionary(AppMenu, Entree, and Dessert)
 #The value variable= Keys of the AppMenu, Entree, and Dessert
 #the userChoice and UserDateChoice= the input from user
 #If the input is within the Keys of one of the menus(AppMenu, Entree, Dessert,)
 # it will 
-for key, value in seafoodMenu.Menu.items():
-    if userChoice in value:
-        print(key)
-        print(value)
-        userPrice=value[userChoice][0]
-        print(userPrice)
-    if userDateChoice in value:
-        print(value)
-        userDatePrice=value[userDateChoice][0]
-        print(userDatePrice)
-        totalBill= userPrice + userDatePrice
-print(totalBill)
-remainingBudget= budgetInput - totalBill
-print(remainingBudget)
+while True:
+    userChoice = input("What will you be having for dinner? ")
+    userDateChoice=input(f"What will {userInput} have for dinner? ")
+    for key, value in seafoodMenu.Menu.items():
+        if userChoice in value:
+            #print(key)
+            #print(value)
+            userPrice=value[userChoice][0]
+            #print(userPrice)
+        if userDateChoice in value:
+            #print(value)
+            userDatePrice=value[userDateChoice][0]
+            #print(userDatePrice)
+    totalBill= userPrice + userDatePrice
+    budgetInput -= totalBill
+    print(f"Your Current Budget is: {budgetInput}")
+
+    if budgetInput <= 10:
+        print("You are low on funds. Thank You for choosing Demure Dating")
+        break
+    else:
+        print(f"Your Current Budget is: {budgetInput}")
+
+
+
+
+
+
+#print(f"Your total: {totalBill}")
+#remainingBudget= budgetInput - totalBill
+#print(remainingBudget)
+
     #make totalbill function def totalbill (userprice, userdateprice 
 #Script tells the user how much money they have left after each order.
 #totalBill= userPrice + userDatePrice
