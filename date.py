@@ -78,13 +78,17 @@ while True:
             #print(userDatePrice)
     totalBill= userPrice + userDatePrice
     budgetInput -= totalBill
-    print(f"Your Current Budget is: {budgetInput}")
+
 
     if budgetInput <= 10:
-        print("You are low on funds. Thank You for choosing Demure Dating")
-        break
-    else:
-        print(f"Your Current Budget is: {budgetInput}")
+        toPay=input(f"Would You like to pay the bill? y/n ")
+        if toPay == "y":
+            print(f"Your total for the night was: {totalBill}. Your remaining budget: {budgetInput} \n Thank You for choosing Demure Dating")
+            break
+        else:
+            print(f"Your total for the night: {totalBill}. Your remaining budget: {budgetInput} Those that wish not to pay are to bust those suds")
+            break
+    break
 
 
 
